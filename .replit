@@ -1,0 +1,18 @@
+run = "npm run dev"
+modules = ["nodejs-18:v18-20230807-c68d1b1"]
+
+[nix]
+channel = "stable-23_11"
+
+[deployment]
+run = ["sh", "-c", "npm run start"]
+deploymentTarget = "cloudrun"
+ignorePorts = false
+
+[env]
+PORT = "3000"
+NODE_ENV = "development"
+
+[languages.typescript]
+pattern = "**/{*.ts,*.js,*.tsx,*.jsx}"
+syntax = "typescript" 

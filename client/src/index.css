@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand Colors */
+:root {
+  --color-primary: #822727;
+  --color-primary-dark: #631D1D;
+  --color-primary-light: #9B2C2C;
+  
+  /* UI Colors */
+  --color-secondary: #E5D3B3;
+  --color-secondary-border: #D4C4A8;
+  
+  /* Text Colors */
+  --color-text-primary: rgb(17 24 39);
+  --color-text-secondary: rgb(55 65 81);
+  --color-text-muted: rgb(107 114 128);
+  
+  /* Background Colors */
+  --color-background: rgb(243 244 246);
+  --color-surface: white;
+  
+  /* Border Colors */
+  --color-border: rgb(209 213 219);
+  
+  /* Status Colors */
+  --color-error: rgb(220 38 38);
+}
+
+/* Layout Components */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  padding: 2rem;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.card {
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+}
+
+.card--rounded-bottom {
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+/* Header Components */
+.platform-header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.platform-header--rounded-top {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.subheader {
+  background-color: var(--color-secondary);
+  color: var(--color-text-primary);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-secondary-border);
+}
+
+/* Form Components */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(130, 39, 39, 0.2);
+}
+
+/* Button Components */
+.btn {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+
+.btn--primary {
+  color: white;
+  background-color: var(--color-primary);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn--primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-primary);
+}
+
+.btn--link {
+  color: var(--color-primary);
+  font-weight: 500;
+  background: none;
+  padding: 0;
+}
+
+.btn--link:hover {
+  color: var(--color-primary-dark);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* Additional Components */
+.register-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--color-error);
+}
+
+/* Base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} 

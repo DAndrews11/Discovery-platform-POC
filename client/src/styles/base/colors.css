@@ -1,0 +1,25 @@
+:root {
+  /* Brand Colors */
+  --color-primary: #822727;
+  --color-primary-dark: #631D1D;
+  --color-primary-light: #9B2C2C;
+  
+  /* UI Colors */
+  --color-secondary: #E5D3B3;
+  --color-secondary-border: #D4C4A8;
+  
+  /* Text Colors */
+  --color-text-primary: rgb(17 24 39);
+  --color-text-secondary: rgb(55 65 81);
+  --color-text-muted: rgb(107 114 128);
+  
+  /* Background Colors */
+  --color-background: rgb(243 244 246);
+  --color-surface: white;
+  
+  /* Border Colors */
+  --color-border: rgb(209 213 219);
+  
+  /* Status Colors */
+  --color-error: rgb(220 38 38);
+} 

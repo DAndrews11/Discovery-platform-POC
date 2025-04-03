@@ -1,0 +1,32 @@
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  padding: 2rem;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.content-wrapper--md {
+  max-width: 48rem;
+}
+
+.content-wrapper--lg {
+  max-width: 64rem;
+}
+
+.card {
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+}
+
+.card--rounded-bottom {
+  border-radius: 0 0 0.25rem 0.25rem;
+} 
