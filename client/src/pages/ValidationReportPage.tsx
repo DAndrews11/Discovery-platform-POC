@@ -24,7 +24,7 @@ export default function ValidationReportPage() {
             try {
                 setLoading(true);
                 setError('');
-                const response = await axios.get(`/claims/${claimId}/validations/${reportId}`);
+                const response = await axios.get(`/api/claims/${claimId}/validations/${reportId}`);
                 setReport(response.data);
             } catch (err: any) {
                 console.error('Error fetching validation report:', err);

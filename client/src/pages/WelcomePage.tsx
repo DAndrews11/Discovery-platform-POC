@@ -31,7 +31,7 @@ export default function WelcomePage() {
         try {
             setLoading(true);
             setError('');
-            const response = await axios.get('/claims/stats');
+            const response = await axios.get('/api/claims/stats');
             setStats(response.data);
         } catch (err: any) {
             console.error('Error fetching stats:', err);

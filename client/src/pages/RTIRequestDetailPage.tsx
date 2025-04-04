@@ -43,11 +43,11 @@ export default function RTIRequestDetailPage() {
                 setError('');
                 
                 // Fetch claim details
-                const claimResponse = await axios.get(`/claims/${id}`);
+                const claimResponse = await axios.get(`/api/claims/${id}`);
                 setClaim(claimResponse.data);
                 
                 // Fetch RTI request details
-                const rtiResponse = await axios.get(`/rti/${requestId}`, {
+                const rtiResponse = await axios.get(`/api/rti/${requestId}`, {
                     params: { claimId: id }
                 });
                 setRTIRequest(rtiResponse.data);

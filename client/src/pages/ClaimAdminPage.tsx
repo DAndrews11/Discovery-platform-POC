@@ -74,7 +74,7 @@ export default function ClaimAdminPage() {
             setLoading(true);
             setError('');
             console.log('Fetching claim with ID:', id);
-            const response = await axios.get(`/claims/${id}`);
+            const response = await axios.get(`/api/claims/${id}`);
             console.log('Claim response:', response.data);
             setClaim(response.data);
             setEditedClaim({
@@ -83,12 +83,7 @@ export default function ClaimAdminPage() {
                 status: response.data.status
             });
         } catch (err: any) {
-            console.error('Error fetching claim:', {
-                message: err.message,
-                response: err.response?.data,
-                status: err.response?.status,
-                config: err.config
-            });
+            console.error('Error fetching claim:', err);
             setError(err.message || 'Failed to fetch claim details');
         } finally {
             setLoading(false);
@@ -97,31 +92,23 @@ export default function ClaimAdminPage() {
 
     const fetchValidationReports = async () => {
         try {
-            const response = await axios.get(`/claims/${id}/validations`);
+            const response = await axios.get(`/api/claims/${id}/validations`);
             setValidationReports(response.data);
             setShowValidations(true);
         } catch (err: any) {
-            console.error('Error fetching validation reports:', {
-                message: err.message,
-                response: err.response?.data,
-                status: err.response?.status
-            });
+            console.error('Error fetching validation reports:', err);
             setError('Failed to fetch validation reports');
         }
     };
 
     const fetchRTIRequests = async () => {
         try {
-            const response = await axios.get(`/rti`, { params: { claimId: id } });
+            const response = await axios.get(`/api/rti`, { params: { claimId: id } });
             setRTIRequests(response.data);
             setShowRTIRequests(true);
             setShowValidations(false);
         } catch (err: any) {
-            console.error('Error fetching RTI requests:', {
-                message: err.message,
-                response: err.response?.data,
-                status: err.response?.status
-            });
+            console.error('Error fetching RTI requests:', err);
             setError('Failed to fetch RTI requests');
         }
     };
@@ -134,7 +121,7 @@ export default function ClaimAdminPage() {
         setSaveSuccess(false);
         
         try {
-            const response = await axios.put(`/claims/${id}`, editedClaim);
+            const response = await axios.put(`/api/claims/${id}`, editedClaim);
             setClaim(prevClaim => ({
                 ...prevClaim!,
                 ...editedClaim
@@ -144,11 +131,7 @@ export default function ClaimAdminPage() {
             // Hide success message after 3 seconds
             setTimeout(() => setSaveSuccess(false), 3000);
         } catch (err: any) {
-            console.error('Error updating claim:', {
-                message: err.message,
-                response: err.response?.data,
-                status: err.response?.status
-            });
+            console.error('Error updating claim:', err);
             setSaveError(err.message || 'Failed to update claim');
         } finally {
             setIsSaving(false);

@@ -37,9 +37,6 @@ getDB().catch(err => {
     process.exit(1);
 });
 
-// Serve static files from the public directory
-app.use(express.static(path.join(__dirname, '../../public')));
-
 // Routes
 app.use('/api/auth', authRouter);
 app.use('/api/claims', claimsRouter);
@@ -51,9 +48,9 @@ app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
-// Serve React app for all other routes
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/index.html'));
+// API 404 handler
+app.use('/api/*', (req, res) => {
+    res.status(404).json({ error: 'API endpoint not found' });
 });
 
 // Error handling middleware

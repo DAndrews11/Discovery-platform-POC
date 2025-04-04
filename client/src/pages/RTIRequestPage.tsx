@@ -49,7 +49,7 @@ export default function RTIRequestPage() {
         const fetchClaim = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`/claims/${id}`);
+                const response = await axios.get(`/api/claims/${id}`);
                 setClaim(response.data);
             } catch (err: any) {
                 console.error('Error fetching claim:', {
@@ -78,8 +78,8 @@ export default function RTIRequestPage() {
         setIsThinking(true);
         
         try {
-            console.log('Making API request to /rti/start with claim:', claim);
-            const response = await axios.post('/rti/start', {
+            console.log('Making API request to /api/rti/start with claim:', claim);
+            const response = await axios.post('/api/rti/start', {
                 claim_id: claim.id,
                 claim_nb_tx: claim.claim_nb_tx,
                 claim_title: claim.claim_title,
@@ -114,7 +114,7 @@ export default function RTIRequestPage() {
         setIsThinking(true);
 
         try {
-            const response = await axios.post('/rti/chat', {
+            const response = await axios.post('/api/rti/chat', {
                 message: currentMessage,
                 claim_id: id,
                 messages: messages.map(msg => ({
@@ -141,7 +141,7 @@ export default function RTIRequestPage() {
         try {
             setIsThinking(true);
 
-            const response = await axios.post('/rti/generate-request', {
+            const response = await axios.post('/api/rti/generate-request', {
                 claim_id: id,
                 messages: messages
             });

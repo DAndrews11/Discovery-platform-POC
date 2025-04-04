@@ -38,7 +38,7 @@ export default function CreateClaimPage() {
             setSubmitting(true);
             setError('');
             
-            const response = await axios.post('/claims', {
+            const response = await axios.post('/api/claims', {
                 claim_title: formData.claim_title,
                 description: formData.description,
                 published_url: formData.published_url,

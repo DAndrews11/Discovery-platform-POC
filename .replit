@@ -1,11 +1,11 @@
-run = "npm run dev"
-modules = ["nodejs-18:v18-20230807-c68d1b1"]
+run = "node server-start.js"
+modules = ["nodejs-20", "web", "nix"]
 
 [nix]
-channel = "stable-23_11"
+channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "npm run start"]
+run = ["sh", "-c", "node server-start.js"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
 
@@ -15,4 +15,12 @@ NODE_ENV = "development"
 
 [languages.typescript]
 pattern = "**/{*.ts,*.js,*.tsx,*.jsx}"
-syntax = "typescript" 
+syntax = "typescript"
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
+
+[[ports]]
+localPort = 5173
+externalPort = 5173 
