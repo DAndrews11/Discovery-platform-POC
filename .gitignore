@@ -8,9 +8,6 @@ node_modules/
 /client/node_modules/
 /server/node_modules/
 
-# Server package.json (contains sensitive data)
-server/package.json
-
 # SQLite database
 *.sqlite
 *.sqlite3
