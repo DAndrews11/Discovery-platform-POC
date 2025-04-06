@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import path from 'path';
-import { initializeDatabase } from './init.js';
+import { initDB } from './init.js';
 import { getDB, closeDB } from './utils.js';
 
 // Configure dotenv to look in the root directory
@@ -10,7 +10,7 @@ console.log('Starting database initialization...');
 
 async function main() {
     try {
-        await initializeDatabase();
+        await initDB();
         console.log('Database initialized successfully!');
 
         // Test query to verify tables were created
